@@ -12,5 +12,6 @@ $(document).ready(function(){
       annualSalary: $('#annualSalaryInput').val(),
     };
     employeeArray.push(newEmployee);
-  ;})
+    $('#employeeInputs').children().val('');
+  });
 })
