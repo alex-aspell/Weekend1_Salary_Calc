@@ -1,4 +1,5 @@
 var employeeArray = [];
+var formerEmployees = [];
 
 $(document).ready(function(){
   $('#inputNewEmployee').on('click', function(){
@@ -16,6 +17,17 @@ $(document).ready(function(){
     displayEmployees();
     employeeMonthlySalary();
   });
+  $('#employees').on('click', '.delete' ,function(){
+    console.log('clicked');
+    for (var i=0; i<employeeArray.length; i++){
+      console.log('fuck')
+      if (employeeArray[i] == $(this).data('remove')){
+      console.log('almost');
+      formerEmployees.push(employeeArray.splice(i, 1));
+      }
+      displayEmployees();
+  }
+})
 })
 
 function displayEmployees(){
@@ -28,6 +40,7 @@ function displayEmployees(){
     stringToAppend += employeeArray[i].idNumber + ' ';
     stringToAppend += employeeArray[i].jobTitle + ' ';
     stringToAppend += employeeArray[i].annualSalary + ' ';
+    stringToAppend += '<button class="delete" data-remove= "' + employeeArray[i] + '">Delete</button>';
     stringToAppend += '</li>';
     employeeOutput.append(stringToAppend);
   }
