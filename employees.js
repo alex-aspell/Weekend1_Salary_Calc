@@ -26,6 +26,7 @@ $(document).ready(function(){
       formerEmployees.push(employeeArray.splice(i, 1));
       }
       displayEmployees();
+      employeeMonthlySalary();
   }
 })
 })
