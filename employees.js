@@ -14,6 +14,7 @@ $(document).ready(function(){
     employeeArray.push(newEmployee);
     $('#employeeInputs').children().val('');
     displayEmployees();
+    employeeMonthlySalary();
   });
 })
 
@@ -31,3 +32,16 @@ function displayEmployees(){
     employeeOutput.append(stringToAppend);
   }
 };
+
+function employeeMonthlySalary(){
+  /// create variable
+  var totalMonthlySalary = 0;
+  $('#totalPayment').empty();
+  ///run a for loop that divides annual wage by 12 and pushes to the variable
+  ///while also adding to it
+  for (var i=0; i<employeeArray.length; i++){
+  totalMonthlySalary = employeeArray[i].annualSalary * .083 + totalMonthlySalary;
+  };
+  /// append totalMonthlySalary to the DOM
+  $('#totalPayment').append(totalMonthlySalary);
+}
